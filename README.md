@@ -11,8 +11,7 @@ Meant to be a living document — add a note every time something takes more tha
 | `arch/` | Arch Linux on archbox home server (i3-4130T) |
 | `debian/` | Debian 13 across multiple machines |
 | `fedora/` | Fedora notes |
-| `chromebook/` | Samsung Chromebook Pro → Linux conversion |
-| `hardware/` | Hardware-specific fixes |
+| `hardware/` | Hardware-specific fixes (RTX 5060 Ti Blackwell, Samsung Chromebook Pro conversion) |
 
 ## Distro History
 
