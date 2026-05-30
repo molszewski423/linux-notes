@@ -1,7 +1,23 @@
 # NixOS → Debian 13 Migration (MikePC)
 
 **Date:** May 2026
-**Reason:** RTX 5060 Ti (Blackwell) driver support was easier to manage on Debian; NixOS binary cache lag for bleeding-edge NVIDIA drivers
+
+## Why NixOS — and Why We Left
+
+NixOS was used extensively across multiple machines with genuine success: reproducible builds, atomic rollbacks, declarative config, excellent Wayland/NVIDIA support once tuned. It's a genuinely powerful system.
+
+The breaking point was **CLI tooling friction**:
+
+- Most AI/ML tools (`ollama`, `claude`, Python scripts, pip packages) assume a standard FHS filesystem. On NixOS, paths like `/usr/bin/python` don't exist — everything lives in the Nix store under hashed paths.
+- Running arbitrary binaries (downloaded CLIs, NVIDIA run files, vendor tools) requires `patchelf`, `nix-ld`, or wrapping in `nix-shell` / `nix develop` environments. This adds overhead to every new tool.
+- `pip install` into a venv works, but only inside a `nix-shell` with the right headers exposed. Without it you get missing `libstdc++`, broken `cffi` builds, etc.
+- The fast-moving AI tooling ecosystem (new models, new inference engines, new SDKs weekly) clashed with NixOS's "declare everything" philosophy. Iterating quickly meant fighting the package manager constantly.
+
+Debian 13 gives a stable, FHS-compliant base where any CLI tool just works. The tradeoff is giving up rollbacks and declarative config — acceptable for a dev workstation running containerized workloads anyway.
+
+**TL;DR:** NixOS is excellent for stable, well-packaged software. It's friction for a machine whose primary job is running bleeding-edge AI CLI tools.
+
+## Reason for Migration
 
 ## Backup Strategy
 
