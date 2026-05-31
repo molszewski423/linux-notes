@@ -1,7 +1,7 @@
-# Debian 13 — NVIDIA RTX 5060 Ti Driver Install
+# Debian 13  -  NVIDIA RTX 5060 Ti Driver Install
 
 **Machine:** MikePC (Ryzen 7 7800X3D, RTX 5060 Ti)
-**Driver:** 570.172.08 (run file method — apt driver too old for Blackwell at time of install)
+**Driver:** 570.172.08 (run file method  -  apt driver too old for Blackwell at time of install)
 
 ## Why the Run File Method
 

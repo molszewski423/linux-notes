@@ -1,15 +1,15 @@
-# NixOS — Strengths, Gotchas, and When to Use It
+# NixOS  -  Strengths, Gotchas, and When to Use It
 
 Used across multiple machines. Worth returning to for the right workload.
 
 ## What NixOS Does Well
 
-- **Atomic rollbacks** — bad update? `nixos-rebuild switch --rollback` and you're back
-- **Declarative everything** — one `configuration.nix` reproduces the entire system
-- **No dependency hell** — multiple versions of the same library coexist cleanly
-- **NVIDIA + Wayland** — once configured correctly, rock solid (see `nvidia-rtx5060ti-blackwell.md`)
-- **Development shells** — `nix develop` gives a reproducible build environment per project
-- **Home Manager** — declarative dotfiles management, rollbackable like the system
+- **Atomic rollbacks**  -  bad update? `nixos-rebuild switch --rollback` and you're back
+- **Declarative everything**  -  one `configuration.nix` reproduces the entire system
+- **No dependency hell**  -  multiple versions of the same library coexist cleanly
+- **NVIDIA + Wayland**  -  once configured correctly, rock solid (see `nvidia-rtx5060ti-blackwell.md`)
+- **Development shells**  -  `nix develop` gives a reproducible build environment per project
+- **Home Manager**  -  declarative dotfiles management, rollbackable like the system
 
 ## The CLI Tooling Problem
 
@@ -51,4 +51,4 @@ Fixes most pre-compiled binaries but not everything.
 ## Recommended Approach
 
 Use NixOS for servers. Use Debian on dev machines.
-Keep NixOS config in git — if you return to it, the config is ready.
+Keep NixOS config in git  -  if you return to it, the config is ready.

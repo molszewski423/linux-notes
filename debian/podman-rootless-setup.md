@@ -1,4 +1,4 @@
-# Debian 13 — Rootless Podman Setup
+# Debian 13  -  Rootless Podman Setup
 
 Rootless Podman for running containers without root. Used on both MikePC and archbox.
 

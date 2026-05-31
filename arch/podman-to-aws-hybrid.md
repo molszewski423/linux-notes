@@ -1,4 +1,4 @@
-# Hybrid Cloud — Podman Homelab to AWS EC2
+# Hybrid Cloud  -  Podman Homelab to AWS EC2
 
 How to split a single-server Podman pod across a home server and AWS EC2,
 using Tailscale as the secure bridge. No VPC peering, no VPN gateway, no open ports.
@@ -27,12 +27,12 @@ Internal traffic:
 ```
 
 The key insight: **Cloudflare Tunnel runs on EC2, not at home.**
-Tunnel uses outbound-only connections — EC2 needs no open inbound ports.
+Tunnel uses outbound-only connections  -  EC2 needs no open inbound ports.
 Security group can block all inbound except SSH and Tailscale.
 
 ## Why Tailscale Instead of VPC/VPN
 
-- Zero config — install on both machines, they find each other
+- Zero config  -  install on both machines, they find each other
 - Works through NAT on both sides (home router + EC2 security group)
 - Encrypted WireGuard underneath
 - Machines use stable Tailscale IPs regardless of public IP changes
@@ -45,7 +45,7 @@ tailnet by IP or MagicDNS name (`http://archbox:8109`).
 
 **Don't share SQLite across services running on different machines.**
 
-SQLite uses file locking — works fine when everything is on one server with
+SQLite uses file locking  -  works fine when everything is on one server with
 a shared volume. Falls apart the moment services are on separate hosts.
 
 If you're splitting services across EC2 and home:
@@ -54,10 +54,10 @@ If you're splitting services across EC2 and home:
 - All services connect over the network to the same Postgres instance
 - Home server services connect via Tailscale IP
 
-## Cloudflare Tunnel — Moving From Home to EC2
+## Cloudflare Tunnel  -  Moving From Home to EC2
 
 Creating a new tunnel token and running it on EC2 is all that's needed.
-No DNS changes — Cloudflare's Zero Trust dashboard routes hostnames to
+No DNS changes  -  Cloudflare's Zero Trust dashboard routes hostnames to
 whichever tunnel token is active.
 
 Cutover is instant and reversible:
@@ -88,7 +88,7 @@ Deployment + Service objects.
 
 ## Lessons
 
-- Move the Cloudflare Tunnel to EC2 before anything else — validates networking
+- Move the Cloudflare Tunnel to EC2 before anything else  -  validates networking
 - PostgreSQL migration before the cutover, not during
 - Keep the home tunnel running in parallel until EC2 is stable for 24+ hours
-- Rollback is just switching the tunnel in the Cloudflare dashboard — < 2 min
+- Rollback is just switching the tunnel in the Cloudflare dashboard  -  < 2 min

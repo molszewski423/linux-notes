@@ -1,7 +1,7 @@
 # linux-notes
 
 A running log of distros I've used, problems I've solved, and things worth remembering.
-Meant to be a living document — add a note every time something takes more than 10 minutes to figure out.
+Meant to be a living document  -  add a note every time something takes more than 10 minutes to figure out.
 
 ## Structure
 
@@ -16,14 +16,14 @@ Meant to be a living document — add a note every time something takes more tha
 ## Distro History
 
 ```
-NixOS          → MikePC (RTX 5060 Ti workstation) — migrated to Debian 13 (May 2026)
-Arch Linux     → archbox home server — current
-Debian 13      → MikePC, MikeInspiron, Chromebook (debianbook) — current
+NixOS          → MikePC (RTX 5060 Ti workstation)  -  migrated to Debian 13 (May 2026)
+Arch Linux     → archbox home server  -  current
+Debian 13      → MikePC, MikeInspiron, Chromebook (debianbook)  -  current
 Fedora         → Previous workstation installs
 ChromeOS→Linux → Samsung Chromebook Pro (Caroline/Skylake)
 ```
 
 ## How to Use
 
-Each note is a standalone markdown file. No clever tooling — just files.
+Each note is a standalone markdown file. No clever tooling  -  just files.
 Add a new `.md` when you solve something that cost you time.

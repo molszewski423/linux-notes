@@ -1,9 +1,9 @@
-# Hardware — NVIDIA RTX 5060 Ti (Blackwell GB206)
+# Hardware  -  NVIDIA RTX 5060 Ti (Blackwell GB206)
 
 ## Key Facts
 
 - Architecture: Blackwell (GB206)
-- **Requires open kernel module** — closed module does not support Blackwell
+- **Requires open kernel module**  -  closed module does not support Blackwell
 - Minimum driver: 570.86.15
 - CUDA: 12.8+
 
@@ -20,18 +20,18 @@
 
 ## Tested on
 
-- **NixOS** (Flakes, driver 570) — fully working, Hyprland + KDE Plasma
-- **Debian 13** (run file install 570.172.08) — fully working, GNOME + Hyprland
+- **NixOS** (Flakes, driver 570)  -  fully working, Hyprland + KDE Plasma
+- **Debian 13** (run file install 570.172.08)  -  fully working, GNOME + Hyprland
 
 ## Ollama Performance
 
-- gemma4:26b — works, works well on 16GB VRAM
-- qwen2.5:14b — good performance
-- llama3.1:8b — fast
+- gemma4:26b  -  works, works well on 16GB VRAM
+- qwen2.5:14b  -  good performance
+- llama3.1:8b  -  fast
 
 ## Notes
 
 - RTX 5060 Ti has 16GB GDDR7 VRAM
 - `nvidia-smi` should show driver version and GPU utilization
 - After kernel update: DKMS rebuilds module automatically if installed via package manager
-- Run file installs do NOT auto-rebuild on kernel update — use DKMS packages when available
+- Run file installs do NOT auto-rebuild on kernel update  -  use DKMS packages when available

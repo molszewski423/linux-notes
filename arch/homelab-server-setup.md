@@ -1,7 +1,7 @@
-# Arch Linux — Homelab Server Setup (archbox)
+# Arch Linux  -  Homelab Server Setup (archbox)
 
 **Machine:** archbox (Intel i3-4130T, Alienware Alpha)
-**Role:** 24/7 home server — 25 Podman containers, AdGuard, CrowdSec, Tailscale exit node
+**Role:** 24/7 home server  -  25 Podman containers, AdGuard, CrowdSec, Tailscale exit node
 
 ## Initial Setup
 
@@ -101,6 +101,6 @@ sudo sshd -t && sudo systemctl restart sshd
 
 ## Notes
 
-- Previously ran AdGuard + CrowdSec on a Raspberry Pi 4 — migrated to archbox for x86 compatibility
-- btrfs snapshots active (/.snapshots/) — regular snapshots taken automatically
+- Previously ran AdGuard + CrowdSec on a Raspberry Pi 4  -  migrated to archbox for x86 compatibility
+- btrfs snapshots active (/.snapshots/)  -  regular snapshots taken automatically
 - GRUB config: `sudo nvim /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg`

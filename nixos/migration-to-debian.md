@@ -2,18 +2,18 @@
 
 **Date:** May 2026
 
-## Why NixOS — and Why We Left
+## Why NixOS  -  and Why We Left
 
 NixOS was used extensively across multiple machines with genuine success: reproducible builds, atomic rollbacks, declarative config, excellent Wayland/NVIDIA support once tuned. It's a genuinely powerful system.
 
 The breaking point was **CLI tooling friction**:
 
-- Most AI/ML tools (`ollama`, `claude`, Python scripts, pip packages) assume a standard FHS filesystem. On NixOS, paths like `/usr/bin/python` don't exist — everything lives in the Nix store under hashed paths.
+- Most AI/ML tools (`ollama`, `claude`, Python scripts, pip packages) assume a standard FHS filesystem. On NixOS, paths like `/usr/bin/python` don't exist  -  everything lives in the Nix store under hashed paths.
 - Running arbitrary binaries (downloaded CLIs, NVIDIA run files, vendor tools) requires `patchelf`, `nix-ld`, or wrapping in `nix-shell` / `nix develop` environments. This adds overhead to every new tool.
 - `pip install` into a venv works, but only inside a `nix-shell` with the right headers exposed. Without it you get missing `libstdc++`, broken `cffi` builds, etc.
 - The fast-moving AI tooling ecosystem (new models, new inference engines, new SDKs weekly) clashed with NixOS's "declare everything" philosophy. Iterating quickly meant fighting the package manager constantly.
 
-Debian 13 gives a stable, FHS-compliant base where any CLI tool just works. The tradeoff is giving up rollbacks and declarative config — acceptable for a dev workstation running containerized workloads anyway.
+Debian 13 gives a stable, FHS-compliant base where any CLI tool just works. The tradeoff is giving up rollbacks and declarative config  -  acceptable for a dev workstation running containerized workloads anyway.
 
 **TL;DR:** NixOS is excellent for stable, well-packaged software. It's friction for a machine whose primary job is running bleeding-edge AI CLI tools.
 
@@ -24,7 +24,7 @@ Debian 13 gives a stable, FHS-compliant base where any CLI tool just works. The 
 Everything backed up to archbox before wiping:
 
 ```bash
-# From NixOS machine — rsync projects, configs, volumes to archbox
+# From NixOS machine  -  rsync projects, configs, volumes to archbox
 rsync -avz ~/agency/           mike@archbox:~/backups/mikenixpc/home/agency/
 rsync -avz ~/pv-workbench/     mike@archbox:~/backups/mikenixpc/home/pv-workbench/
 rsync -avz ~/ams-intelligence/ mike@archbox:~/backups/mikenixpc/home/ams-intelligence/
@@ -57,7 +57,7 @@ Restore scripts saved in `~/restore/` on MikePC:
 
 ## What Needed Manual Work
 
-- NVIDIA driver (run file install — apt driver too old for Blackwell)
+- NVIDIA driver (run file install  -  apt driver too old for Blackwell)
 - Ollama systemd overrides (bind to 0.0.0.0, set models path)
 - Fish shell config (reinstall from dotfiles)
 - Desktop setup (Hyprland on Debian required manual config)
@@ -67,4 +67,4 @@ Restore scripts saved in `~/restore/` on MikePC:
 Full NixOS configuration.nix archived at:
 `archbox:~/backups/mikenixpc/home/nixos-config/`
 
-Worth keeping — the NVIDIA Wayland env vars and CUDA setup are well-documented there.
+Worth keeping  -  the NVIDIA Wayland env vars and CUDA setup are well-documented there.
